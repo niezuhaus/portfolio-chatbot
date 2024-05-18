@@ -9,11 +9,16 @@ app.use((req, res, next) => {
   });
 
 // Serve static files from the "public" directory
-app.use('/drawings', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Serve static files from the "public" directory
+app.use('/drawings', express.static(path.join(__dirname, 'public', 'drawings')));
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.post('/talk', (req, res) => {
+  console.log("received message: " + req)
+    res.json({answer: 'yes'});
   });
 
 

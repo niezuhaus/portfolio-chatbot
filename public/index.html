@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bezierforms</title>
-    <link rel="stylesheet" href="style.css">
+    <title>welcome</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <script src="../lib/typewriter-effect2.21.0.js"></script>
+</head>
 </head>
 <body>
-    <script src="lib/p5.min.js"></script>
-    <script src="sketch.js"></script>
+    <div id="terminal-container">
+        <!-- <span id="term-user">
+            root@niezuhaus.de $
+        </span> -->
+        <span id="text"></span>
+        <script>
+            var text = document.getElementById('text');
+
+            var typewriter = new Typewriter(text, {
+                loop: false,
+                delay: 65,
+            });
+
+            typewriter
+                .pauseFor(500)
+                .typeString('welcome')
+                .start();
+        </script>
+    </div>
 </body>
 </html>

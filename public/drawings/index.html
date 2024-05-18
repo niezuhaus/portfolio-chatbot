@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezierforms</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <script src="lib/typewriter-effect2.21.0.js"></script>
+    <script src="lib/p5.min.js"></script>
+</head>
+
+<body style="display: flex; flex-direction: column;">
+    <div >
+        <h1 id="app">press enter to generate</h1>
+        <script>
+
+            var app = document.getElementById('app');
+
+            var typewriter = new Typewriter(app, {
+                loop: false,
+                delay: 50,
+            });
+
+            typewriter
+                .pauseFor(500)
+                .typeString('Press Enter to generate a new form')
+                .start();
+        </script>
+        <div>
+            <script src="sketch.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>

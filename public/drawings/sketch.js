@@ -31,9 +31,11 @@ function setup() {
     pixelDensity(displayDensity());
     makeArt();
 }
-function draw() {}
-function keyPressed() {
-    makeArt();
+function draw() { }
+function keyPressed(key) {
+    if (key.key == "Enter") {
+        makeArt();
+    }
 }
 function makeArt() {
     background(0);
