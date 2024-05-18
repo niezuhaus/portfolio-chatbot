@@ -15,14 +15,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Serve static files from the "public" directory
 app.use('/drawings', express.static(path.join(__dirname, 'public', 'drawings')));
 
-
-app.post('/talk', (req, res) => {
-  console.log("received message: " + req)
-    res.json({answer: 'yes'});
-  });
-
-
-
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
