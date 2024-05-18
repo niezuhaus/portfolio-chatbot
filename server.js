@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+// Middleware to log all requests
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+  });
+
 // Serve static files from the "public" directory
-app.get('/drawings', (req, res) => {
-    app.send("/public/index.html");
-});
+app.use('/drawings', express.static(path.join(__dirname, 'public')));
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
