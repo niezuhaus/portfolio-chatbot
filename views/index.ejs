@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="icon" href="/img/favicon.png" type="image/png">
     <script src="/js/typewriter-effect2.21.0.js"></script>
@@ -13,96 +15,81 @@
 
 <body>
     <div id="terminal-container">
-        <!-- <span id="term-user">
-            root@niezuhaus.de $
-        </span> -->
-        <div id="text"></div>
+        <p id="text"></p>
         <a onclick="talk('msg1')" id="link1"></a>
-        <a onclick="talk('msg1')" id="link2"></a>
-        <a onclick="talk('msg1')" id="link3"></a>
+        <a onclick="talk('msg2')" id="link2"></a>
+        <a onclick="talk('msg3')" id="link3"></a>
         <script>
-
-
+            // link html refs
             var textref = document.getElementById('text');
-            var link1ref = document.getElementById('link1');
-            var link2ref = document.getElementById('link2');
-            var link3ref = document.getElementById('link3');
+            linkRefs = [
+                document.getElementById('link1'),
+                document.getElementById('link2'),
+                document.getElementById('link3'),
+            ];
 
+            // creating the typewriters
             var typewriter = new Typewriter(textref, {
                 loop: false,
                 deleteSpeed: 1,
                 delay: 25,
             });
+            var linkWriter = [];
+            for (var i = 0; i < 3; i++) {
+                linkWriter[i] = new Typewriter(linkRefs[i], {
+                    loop: false,
+                    deleteSpeed: 1,
+                    delay: 25,
+                    cursor: ''
+                });
+            }
 
-            var link1 = new Typewriter(link1ref, {
-                loop: false,
-                deleteSpeed: 1,
-                delay: 25,
-                cursor: ''
-            });
-
-            var link2 = new Typewriter(link2ref, {
-                loop: false,
-                deleteSpeed: 1,
-                delay: 25,
-                cursor: ''
-            });
-
-            var link3 = new Typewriter(link3ref, {
-                loop: false,
-                deleteSpeed: 1,
-                delay: 25,
-                cursor: ''
-            });
-
-            var talk = function (msg) {
+            var talk = function (msg, callback) {
                 if (msg) {
-                    // typewriter
-                    //     .changeDeleteSpeed(5)
-                    //     .deleteAll();
-                    // typewriter
-                    //     .typeString(msg)
-                    //     .start();
-
                     // Send POST request
-                    fetch('localhost:3000/talk/', {
+                    fetch('/talk/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({ msg: msg })
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Handle response data
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        // Handle error
-                        console.error(error);
-                    });
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.answer) {
+                                typewriter
+                                    .deleteAll()
+                                    .pauseFor(1000)
+                                    .typeString(data.answer)
+                                    .start();
+                            }
+                            var duration = 1500 + (data.answer.length + 1) * 35 || 0;
+                            if (data.links) {
+                                for (var i = 0; i < data.links.length - 1; i++) {
+                                    linkWriter[i]
+                                        .deleteAll()
+                                        .pauseFor(duration)
+                                        .typeString(data.links[i])
+                                        .start();
+                                    duration += (data.links[i].length + 1) * 35;
+                                    linkRefs[i].href = data.links[i];
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            // Handle error
+                            console.error(error);
+                        });
                 }
             }
 
-            typewriter
-                .pauseFor(1000)
-                .typeString('welcome, what part of daniel niehaus\' portfolio are you interested in?')
-                .start();
-
-            link1
-                .pauseFor(3800)
-                .typeString('\\music')
-                .start();
-
-            link2
-                .pauseFor(4000)
-                .typeString('\\photography')
-                .start();
-
-            link3
-                .pauseFor(4425)
-                .typeString('\\drawings')
-                .start();
+            talk('/start', function (data) {
+                typewriter
+                    .deleteAll()
+                    .pauseFor(1000)
+                    .typeString(data.answer)
+                    .start();
+            });
         </script>
     </div>
 </body>

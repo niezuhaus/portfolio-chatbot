@@ -9,10 +9,19 @@ body {
   background-color: #000;
 }
 
-* {
+p, h1, h2, h3, h4, h5, h6, a{
   color: #1de89c;
   font-family: monospace;
   margin: 5px;
+}
+
+a {
+  color: #d3840f;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #b5710d;
 }
 
 #term-user {
