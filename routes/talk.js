@@ -13,7 +13,7 @@ answers.set(
 router.post('/', (req, res) => {
     console.log("received message: " + req.body.msg)
     if (answers.has(req.body.msg)) {
-        res.json({ answer: answers.get(req.body.msg) });
+        res.json(answers.get(req.body.msg));
     }
     else {
         res.json({ answer: 'I am sorry, I do not understand that' });
