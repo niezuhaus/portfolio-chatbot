@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+* {
+  color: #1de89c;
+  font-family: monospace;
+  margin: 5px;
+}
+
+#term-user {
+  color: #d3840f;
+}
+
+#terminal-container {
+  margin: 150px;
+  width: 100%;
+  border: 1px solid #1de89c;
+  padding: 15px;
+}
+
+#userinput {
+margin: 20px 0;
+background: black;
+color: #1de89c;
+border: none;
+border-bottom: 2px dashed;
+outline: none;
+font-size: inherit;
+font-family: inherit;
+}
