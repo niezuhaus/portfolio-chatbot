@@ -3,10 +3,12 @@ var router = express.Router();
 var path = require('path');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'welcome' });
 });
 
-router.use('/drawings', express.static(path.join(__dirname, 'public', 'drawings')));
+router.get('/drawings', function(req, res) {
+  res.render('drawings', { title: 'drawings' });
+});
 
 module.exports = router; 
