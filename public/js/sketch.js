@@ -27,6 +27,7 @@ let pentagonSize = 1;
 let numberBeziersX = 5;
 let numberBeziersY = 4;
 function setup() {
+    this.focus();
     createCanvas(990, 700);
     pixelDensity(displayDensity());
     makeArt();

@@ -2,13 +2,21 @@
 var express = require('express');
 var router = express.Router();
 
-var answers = new Map();
-
-answers.set(
-    "/start", { 
-        answer: "welcome, what part of daniel niehaus\' portfolio are you interested in?",
-        links: ["/drawings", "/photography", "/videos", "/cv"]
-    });
+var answers = new Map(
+    [
+        ["/start", {
+            answer: "welcome, what part of daniel niehaus\' portfolio are you interested in?",
+            links: ["/drawings", "/photography", "/videos", "/cv"]
+        }],
+        ["/drawings", {
+            answer: "perfect, what subtopic do you like to see?",
+            links: ["<- back", "/algorithmic drawing"]
+        }],
+        ["<- back", {
+            answer: "welcome, what part of daniel niehaus\' portfolio are you interested in?",
+            links: ["/drawings", "/photography", "/videos", "/cv"]
+        }],
+    ]);
 
 router.post('/', (req, res) => {
     console.log("received message: " + req.body.msg)

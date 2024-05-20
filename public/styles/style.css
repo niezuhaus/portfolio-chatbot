@@ -2,26 +2,26 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  display: flex;
   align-items: center;
-  height: max-content;
-  width: 100%;
   overflow-x: hidden;
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 p, h1, h2, h3, h4, h5, h6, a{
   color: #1de89c;
   font-family: monospace;
   margin: 5px;
+  text-shadow: 0px 0px 8px;
 }
 
 a {
-  color: #d3840f;
+  color: #d3840f !important;
   cursor: pointer;
 }
 
 a:hover {
-  color: #b5710d;
+  color: #b5710d !important;
 }
 
 #term-user {
@@ -29,8 +29,11 @@ a:hover {
 }
 
 #terminal-container {
-  margin: 150px;
-  width: 100%;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  height: 100px;
   border: 1px solid #1de89c;
   padding: 15px;
 }
@@ -44,4 +47,13 @@ border-bottom: 2px dashed;
 outline: none;
 font-size: inherit;
 font-family: inherit;
+}
+
+#frame {
+  position: absolute;
+  top: 200px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
 }
