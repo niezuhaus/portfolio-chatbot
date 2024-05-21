@@ -25,104 +25,12 @@
             <a id="link4"></a>
             <a id="link5"></a>
         </div>
-        <iframe id="frame" src="" frameborder="0"></iframe>
+        <div id="iframe-container">
+            <iframe id="frame" src="" frameborder="0"></iframe>
+        </div>
     </div>
 </body>
+
 </html>
 
-<script>
-    const delay = 1;
-    const pauseBetweenLinks = 50;
-    // link html refs
-    var textref = document.getElementById('text');
-    linkRefs = [
-        document.getElementById('link1'),
-        document.getElementById('link2'),
-        document.getElementById('link3'),
-        document.getElementById('link4'),
-        document.getElementById('link5'),
-    ];
-    var frame = document.getElementById('frame');
-
-    // creating the typewriters
-    var typewriter = new Typewriter(textref, {
-        loop: false,
-        delay: delay,
-        deleteSpeed: delay,
-    });
-    var linkwriter = [];
-    for (var i = 0; i < linkRefs.length; i++) {
-        linkwriter[i] = new Typewriter(linkRefs[i], {
-            loop: false,
-            delay: delay,
-            deleteSpeed: delay,
-            cursor: ''
-        });
-    }
-
-    var response;
-
-    var recursiveFill = function (i) {
-        linkwriter[i]
-            .deleteAll()
-            .pauseFor(pauseBetweenLinks)
-            .typeString(response.links[i] || '')
-            .callFunction(() => {
-                if (i < linkRefs.length - 1) {
-                    recursiveFill(i + 1);
-                }
-            })
-            .start();
-        linkRefs[i].onclick = () => {
-            talk(response.links[i]);
-            frame.src = response.links[i]
-        };
-    };
-
-    var talk = function (msg) {
-        linkwriter.forEach(writer => { writer.deleteAll().start() })
-        if (msg) {
-            // Send POST request
-            fetch('/talk/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ msg: msg })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.answer) {
-                        response = data;
-                        typewriter
-                            .deleteChars(100)
-                            .typeString(data.answer)
-                            .callFunction(() => {
-
-                                response.links ? recursiveFill(0) : () => { };
-                            })
-                            .start();
-                    }
-                    // var duration = 1500 + (data.answer.length + 1) * (delay + 10) || 0;
-                    // if (data.links) {
-                    //     for (var i = 0; i < data.links.length; i++) {
-                    //         linkwriter[i]
-                    //             .deleteAll()
-                    //             .pauseFor(duration)
-                    //             .typeString(data.links[i])
-                    //             .callFunction(() => {
-                    //                 console.log('done');
-                    //             })
-                    //             .start();
-                    //         duration += (data.links[i].length + 1) * (delay + 15);
-                    //     }
-                    // }
-                })
-                .catch(error => {
-                    // Handle error
-                    console.error(error);
-                });
-        }
-    }
-    talk('/start');
-</script>
+<script src="/js/protocol.js"></script>
