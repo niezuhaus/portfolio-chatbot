@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'welcome' });
+  res.render('index', { title: 'start - niezuhaus', msg: 'start' });
 });
 
 router.get('/bezierforms', function(req, res) {
@@ -16,6 +16,10 @@ router.get('/georg_nees', function(req, res) {
 
 router.get('/music', function(req, res) {
   res.render('music', { title: 'music' });
+});
+
+router.get('/p/:msg', function(req, res) {
+  res.render('index', { title: req.params.msg + ' - niezuhaus', msg: req.params.msg });
 });
 
 module.exports = router; 

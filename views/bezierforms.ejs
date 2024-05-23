@@ -9,30 +9,13 @@
     </title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="icon" href="/img/favicon.png" type="image/png">
-    <script src="/js/typewriter-effect2.21.0.js"></script>
     <script src="/js/p5.min.js"></script>
 
 </head>
 
 <body style="display: flex; flex-direction: column;">
     <div>
-        <h1 id="app">press enter to generate</h1>
-        <script>
-            var app = document.getElementById('app');
-
-            var typewriter = new Typewriter(app, {
-                loop: false,
-                delay: 50,
-            });
-
-            typewriter
-                .pauseFor(500)
-                .typeString('Press Enter to generate a new form')
-                .start();
-        </script>
-        <div>
-            <script src="/js/bezierforms.js"></script>
-        </div>
+        <script src="/js/bezierforms.js"></script>
     </div>
 </body>
 
