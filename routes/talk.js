@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
     console.log(`message from ip ${req.ip}: ${req.body.msg}, number: ${i++}`)
     if (answers.has(req.body.msg)) {
         let answer = answers.get(req.body.msg)
-        answer.answer = answer.answer + req.ip
+        answer.answer = answer.answer + req.headers['x-forwarded-for'] || req.socket.remoteAddress 
         res.json(answer);
     }
     else {
