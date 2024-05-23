@@ -61,7 +61,7 @@ var answers = new Map(
         }],
 
         ["/secret_path", {
-            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, you're safe. but you found the secret path! just follow the path..",
+            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, i know your ip, it is ",
             links: [
                 { name: "/secret path", to: "/secret_path" },
             ]
@@ -71,7 +71,9 @@ var i = 0;
 router.post('/', (req, res) => {
     console.log(`message from ip ${req.ip}: ${req.body.msg}, number: ${i++}`)
     if (answers.has(req.body.msg)) {
-        res.json(answers.get(req.body.msg));
+        let answer = answers.get(req.body.msg)
+        answer.answer = answer.answer + req.ip
+        res.json(answer);
     }
     else {
         res.json({ answer: 'I am sorry, I do not understand that', links: [], notFound: true });
