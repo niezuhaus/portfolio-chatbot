@@ -61,19 +61,21 @@ var answers = new Map(
         }],
 
         ["/secret_path", {
-            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, i know your ip, it is ",
+            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, i know your ip, it is %ip%",
             links: [
                 { name: "/secret path", to: "/secret_path" },
             ]
         },]
     ]);
-var i = 0;
+
 router.post('/', (req, res) => {
-    console.log(`message from ip ${req.ip}: ${req.body.msg}, number: ${i++}`)
     if (answers.has(req.body.msg)) {
-        let answer = answers.get(req.body.msg)
-        answer.answer = answer.answer + req.headers['x-forwarded-for'] || req.socket.remoteAddress 
-        res.json(answer);
+        let response = answers.get(req.body.msg)
+        if (response.answer.includes('%ip%')) {
+            var ip = answer.answer + req.headers['x-forwarded-for'] || req.socket.remoteAddress 
+            response.answer = response.answer.replace('%ip%', ip);
+        }
+        res.json(response);
     }
     else {
         res.json({ answer: 'I am sorry, I do not understand that', links: [], notFound: true });
