@@ -1,6 +1,6 @@
 let borderDist = 50;
-let numberX = 14;
-let numberY = 20;
+let numberX = 30;
+let numberY = 15;
 let boxSize = 40;
 let corners = 23;
 let gonDist = 5;
@@ -11,12 +11,12 @@ let mapCorners = true;
 let cornersStart = 3;
 let cornersEnd = 40;
 function setup() {
-    createCanvas(660, 900);
+    createCanvas(1300, 700);
     noLoop();
-    stroke(0);
+    stroke(255);
 }
 function draw() {
-    background(255);
+    background(0);
     for (let y = 0; y < numberY; y++) {
         for (let x = 0; x < numberX; x++) {
             drawShape(x, y, createNGon(x));

@@ -60,11 +60,11 @@ font-family: inherit;
 
 #frame {
   position: absolute;
-  top: 330px;
+  top: 400px;
   left: 0px;
   right: 0px;
   width: 100%;
-  height: 100%;
+  height: 2000px;
 }
 
 #iframe-container {
@@ -74,5 +74,5 @@ font-family: inherit;
 	position: absolute;
 	align-content: baseline;
 	left: 0px;
-  top: 330px;
+  top: 400px;
 }

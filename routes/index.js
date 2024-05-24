@@ -18,6 +18,10 @@ router.get('/music', function(req, res) {
   res.render('music', { title: 'music' });
 });
 
+router.get('/science_poster_free_software', function(req, res) {
+  res.render('science_poster_free_software', { title: 'digitale infrastrukturen der freiheit' });
+});
+
 router.get('/p/:msg', function(req, res) {
   res.render('index', { title: req.params.msg + ' - niezuhaus', msg: req.params.msg });
 });

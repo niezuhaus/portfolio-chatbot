@@ -27,7 +27,7 @@
             <a id="link6"></a>
         </div>
 
-            <iframe id="frame" src="" frameborder="0"></iframe>
+            <iframe id="frame" src="" frameborder="0" scrolling="no"></iframe>
 
     </div>
 </body>
@@ -48,6 +48,13 @@
         document.getElementById('link6'),
     ];
     var frame = document.getElementById('frame');
+
+    // var resizeIframe = function () {
+    //     console.log(frame.contentWindow.document.body.scrollHeight);
+    //     frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+    // }
+
+    // document.addEventListener('DOMContentLoaded', resizeIframe);
 
     // creating the typewriters
     var typewriter = new Typewriter(textref, {
@@ -70,8 +77,14 @@
 
     var fillLinks = function () {
         linkwriter.forEach((writer, i) => {
-            linkRefs[i].removeAttribute("href");
-            linkRefs[i].onclick = () => { }
+            var link = linkRefs[i];
+            link.removeAttribute("href");
+            if (!response.links[i]) {
+                link.style.display = 'none';
+            } else {
+                link.style.display = 'unset';
+            }
+            link.onclick = () => { }
             writer
                 .deleteChars(lastResponse?.links[i]?.name?.length || 1)
                 .pauseFor(pauseBetweenLinks)
@@ -87,8 +100,6 @@
                 linkRef.onclick = () => {
                     // next talking step
                     talk(link.to || link.name);
-                    // if (link.src)
-                    //     frame.src = link.src
                 }
             }
         });
@@ -131,10 +142,12 @@
                                 if (data.notFound) {
                                     talk('/start')
                                 }
-                                fillLinks()
+                                // fillLinks()
 
                             })
                             .start();
+
+                            fillLinks()
                     }
                 })
                 .catch(error => {
