@@ -8,6 +8,22 @@ body {
   background-color: #000 !important;
 }
 
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 p, h1, h2, h3, h4, h5, h6, a{
   color: #1de89c;
   font-family: monospace;
@@ -28,23 +44,13 @@ a:hover {
   color: #d3840f;
 }
 
-#main {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  right: 50px;
-}
-
 #terminal-container {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  right: 50px;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 30px);
   min-height: 100px;
   border: 1px solid #1de89c;
   padding: 15px;
-  display: flex;
-  flex-direction: column;
 }
 
 #userinput {

@@ -23,6 +23,7 @@ var answers = new Map(
                 link.music,
                 link.science_poster_free_software,
                 { name: "/secret option", to: "/secret_option" },
+                { name: "/secret option", to: "/secret_option" },
             ]
         }],
         ["/algorithmic_drawing", {
@@ -50,7 +51,7 @@ var answers = new Map(
             src: link.georg_nees.src
         }],
         ["/science_poster_free_software", {
-            answer: "this work is a critical reflection on the current state of the internet and the role of free software in it.<br>it will be presented on this year exhibition of the »MS Wissenschaft« which will tour around during summer 2024.",
+            answer: "this work is a critical reflection on the current state of the internet and the role of free software in it. it has been created completely with open source software and will be presented on this years exhibition on the »MS Wissenschaft« exhibition ship, which will tour around during summer 2024.",
             links: [
                 { name: "/...", to: link.back_to_start.to },
                 { name: "find all ressources and an audioversion on codeberg ->", url: "https://codeberg.org/positronen/InfraPoster" },

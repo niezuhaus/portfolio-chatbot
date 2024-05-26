@@ -8,26 +8,38 @@
         <%= title %>
     </title>
     <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/styles/bootstrap.min.css"> -->
     <link rel="icon" href="/img/favicon.png" type="image/png">
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="/js/typewriter-effect2.21.0.js"></script>
     <!-- <script src="/js/typewriter-effect2.21.0.js"></script> -->
 </head>
 
 
 <body>
-    <div id="main">
+    <div class="w-100" style="padding: 50px;">
         <div id="terminal-container">
             <p id="text"></p>
-            <a id="link1"></a>
-            <a id="link2"></a>
-            <a id="link3"></a>
-            <a id="link4"></a>
-            <a id="link5"></a>
-            <a id="link6"></a>
+            <div class="flex row">
+                <div class="flex column" style="min-width: 30%;">
+                    <a id="link1"></a>
+                    <a id="link2"></a>
+                    <a id="link3"></a>
+                    <a id="link4"></a>
+                    <a id="link5"></a>
+                    <a id="link6"></a>
+                </div>
+                <div class="flex column">
+                    <a id="link7"></a>
+                    <a id="link8"></a>
+                    <a id="link9"></a>
+                    <a id="link10"></a>
+                    <a id="link11"></a>
+                    <a id="link12"></a>
+                </div>
+            </div>
         </div>
 
-            <iframe id="frame" src="" frameborder="0" scrolling="no"></iframe>
+        <iframe id="frame" src="" frameborder="0" scrolling="no"></iframe>
 
     </div>
 </body>
@@ -40,13 +52,16 @@
     // link html refs
     var textref = document.getElementById('text');
     linkRefs = [
-        document.getElementById('link1'),
-        document.getElementById('link2'),
-        document.getElementById('link3'),
-        document.getElementById('link4'),
-        document.getElementById('link5'),
-        document.getElementById('link6'),
     ];
+    var condition = true;
+    while (condition) {
+        var link = document.getElementById('link' + (linkRefs.length + 1));
+        if (link) {
+            linkRefs.push(link);
+        } else {
+            condition = false;
+        }
+    }
     var frame = document.getElementById('frame');
 
     // var resizeIframe = function () {
@@ -79,9 +94,7 @@
         linkwriter.forEach((writer, i) => {
             var link = linkRefs[i];
             link.removeAttribute("href");
-            if (!response.links[i]) {
-                link.style.display = 'none';
-            } else {
+            if (response.links[i]) {
                 link.style.display = 'unset';
             }
             link.onclick = () => { }
@@ -89,6 +102,11 @@
                 .deleteChars(lastResponse?.links[i]?.name?.length || 1)
                 .pauseFor(pauseBetweenLinks)
                 .typeString(response?.links[i]?.name || '')
+                .callFunction(() => {
+                    if (!response.links[i]) {
+                        link.style.display = 'none';
+                    }
+                })
                 .start()
         });
         response.links.forEach((link, i) => {
@@ -147,7 +165,7 @@
                             })
                             .start();
 
-                            fillLinks()
+                        fillLinks()
                     }
                 })
                 .catch(error => {
