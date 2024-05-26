@@ -39,7 +39,8 @@
             </div>
         </div>
 
-        <iframe id="frame" src="" frameborder="0" scrolling="no"></iframe>
+        <iframe id="frame" src="" frameborder="0" scrolling="no"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
     </div>
 </body>
@@ -117,7 +118,7 @@
             } else {
                 linkRef.onclick = () => {
                     // next talking step
-                    talk(link.to || link.name);
+                    talk(link.to ? link.to : link.name);
                 }
             }
         });
@@ -140,6 +141,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.answer) {
+                        console.log(data);
                         lastResponse = response;
                         response = data;
                         // delete everything

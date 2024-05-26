@@ -7,8 +7,10 @@ var link = {
     algorithmic_drawing: { name: "/algorithmic drawing", to: "/algorithmic_drawing" },
     photography: { name: "/photography" },
     music: { name: "/music", src: "/music" },
+    opensource: { name: "/open source", to: "/opensource" },
     bezier_forms: { name: "/bezier forms", to: "/bezier_forms", src: "/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/georg_nees", src: "/georg_nees" },
+    dispogramm: { name: "/dispogramm", to: "/dispogramm"},
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
 }
 
@@ -20,8 +22,8 @@ var answers = new Map(
                 link.algorithmic_drawing,
                 link.photography,
                 { name: "/videos" },
+                link.opensource,
                 link.music,
-                link.science_poster_free_software,
                 { name: "/secret option", to: "/secret_option" },
                 { name: "/secret option", to: "/secret_option" },
             ]
@@ -32,6 +34,14 @@ var answers = new Map(
                 link.back_to_start,
                 link.bezier_forms,
                 link.georg_nees,
+            ],
+        }],
+        ["/opensource", {
+            answer: "perfect, what subtopic would you like to see?",
+            links: [
+                link.back_to_start,
+                link.dispogramm,
+                link.science_poster_free_software,
             ],
         }],
         ["/bezier_forms", {
@@ -53,11 +63,19 @@ var answers = new Map(
         ["/science_poster_free_software", {
             answer: "this work is a critical reflection on the current state of the internet and the role of free software in it. it has been created completely with open source software and will be presented on this years exhibition on the »MS Wissenschaft« exhibition ship, which will tour around during summer 2024.",
             links: [
-                { name: "/...", to: link.back_to_start.to },
+                { name: "/...", to: link.opensource.to },
                 { name: "find all ressources and an audioversion on codeberg ->", url: "https://codeberg.org/positronen/InfraPoster" },
                 { name: "find out about the exhibition ->", url: "https://ms-wissenschaft.de/de/ausstellung/" }
             ],
             src: link.science_poster_free_software.src
+        }],
+        ["/dispogramm", {
+            answer: "this is",
+            links: [
+                { name: "/...", to: link.opensource.to },
+                { name: "dispogram demo version ->", url: "https://cloud.niezuhaus.de/" },
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/fex-dispogramm" }
+            ],
         }],
         ["/music", {
             answer: "i had a band years ago. we finished at least one ep before we split up, that you might enjoy",
@@ -84,6 +102,7 @@ var answers = new Map(
 
 router.post('/', (req, res) => {
     if (answers.has(req.body.msg)) {
+        console.log("message received: " + req.body.msg);
         let response = answers.get(req.body.msg)
         if (response.answer.includes('%ip%')) {
             var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
