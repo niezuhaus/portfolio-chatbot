@@ -113,7 +113,7 @@ router.post('/', (req, res) => {
         res.json(response);
     }
     else {
-        res.json({ answer: 'I am sorry, I do not understand that', links: [], notFound: true });
+        res.json({ answer: "i am sorry, i didn't understand that. going back to start.", links: [], notFound: true });
     }
 });
 
