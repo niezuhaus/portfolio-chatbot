@@ -16,7 +16,6 @@ class ArrayList extends Array {
     }
 }
 
-// [processing-p5-convert] import processing.svg.*;
 let cMinBezierDist = 10; // minimum distance from a bezier puller to its anchorpoint
 let cNumberBeziersSmall = 1; // number of bezierlines being drawn in a small form
 let cNumberBeziersBig = 10; // number of bezierlines being drawn in a big form
@@ -26,13 +25,19 @@ let forms = new ArrayList();
 let pentagonSize = 1;
 let numberBeziersX = 5;
 let numberBeziersY = 4;
+let touchable = 'createTouch' in document;
+let touchcontainer;
+
 function setup() {
     this.focus();
     createCanvas(990, 700);
     pixelDensity(displayDensity());
     makeArt();
+    document.addEventListener('touchstart', {}); // in iframe
+
 }
-function draw() { }
+function draw() {
+}
 function mousePressed() {
     makeArt();
 }

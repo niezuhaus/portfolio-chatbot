@@ -14,6 +14,7 @@ function setup() {
     createCanvas(1300, 700);
     noLoop();
     stroke(255);
+    document.addEventListener('touchstart', {}); // in iframe
 }
 function draw() {
     background(0);
@@ -64,6 +65,17 @@ function drawShape(column, row, vertexes) {
     }
     endShape(CLOSE);
 }
+
+// prevent scrolling on touch devices if it is in the p5 sketch
+document.ontouchstart = function (event) {
+    event.preventDefault();
+    let touchX = e.touches[0].clientX;
+    let touchY = e.touches[0].clientY;
+    cornersEnd = round(map(touchX, 0, width, cornersStart, 50));
+    gonDistEnd = round(map(touchY, 0, height, gonDistStart, -20));
+    redraw();
+};
+
 function mouseMoved() {
     cornersEnd = round(map(mouseX, 0, width, cornersStart, 50));
     gonDistEnd = round(map(mouseY, 0, height, gonDistStart, -20));
