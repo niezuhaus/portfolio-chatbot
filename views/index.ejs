@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <iframe id="frame" src="" frameborder="0" scrolling="no"
+        <iframe id="frame" src="" frameborder="0" scrolling="no" onload="resizeIframe(this)"
             referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
     </div>
@@ -48,6 +48,10 @@
 </html>
 
 <script>
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+
     const delay = 1;
     const pauseBetweenLinks = 50;
     // link html refs

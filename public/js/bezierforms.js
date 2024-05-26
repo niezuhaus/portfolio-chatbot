@@ -33,6 +33,12 @@ function setup() {
     makeArt();
 }
 function draw() { }
+function mousePressed() {
+    makeArt();
+}
+function touchStarted() {
+    makeArt();
+}
 function keyPressed(key) {
     if (key.key == "Enter") {
         makeArt();
