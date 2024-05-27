@@ -11,6 +11,7 @@ let mapCorners = true;
 let cornersStart = 3;
 let cornersEnd = 40;
 function setup() {
+    this.focus();
     createCanvas(1300, 700);
     noLoop();
     stroke(255);
@@ -80,4 +81,10 @@ function mouseMoved() {
     cornersEnd = round(map(mouseX, 0, width, cornersStart, 50));
     gonDistEnd = round(map(mouseY, 0, height, gonDistStart, -20));
     redraw();
+}
+
+function touchStarted() {
+    cornersEnd = round(map(pmouseX, 0, width, cornersStart, 50));
+    gonDistEnd = round(map(pmouseY, 0, height, gonDistStart, -20));
+    makeArt();
 }
