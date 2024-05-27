@@ -10,6 +10,7 @@ var link = {
     opensource: { name: "/open source", to: "/opensource" },
     bezier_forms: { name: "/bezier forms", to: "/bezier_forms", src: "/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/georg_nees", src: "/georg_nees" },
+    manfred_mohr: { name: "/manfred mohr", to: "/manfred_mohr", src: "/manfre_mohr" },
     dispogramm: { name: "/dispogramm", to: "/dispogramm"},
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
 }
@@ -34,6 +35,7 @@ var answers = new Map(
                 link.back_to_start,
                 link.bezier_forms,
                 link.georg_nees,
+                link.manfred_mohr,
             ],
         }],
         ["/opensource", {
@@ -70,7 +72,7 @@ var answers = new Map(
             src: link.science_poster_free_software.src
         }],
         ["/dispogramm", {
-            answer: "this is",
+            answer: "this project has been my primary task between 2020 and 2022. <br>it's a web application for bike messenger companies and it has been developed by me and my colleague for our collective company 'fahrrad express kurier:innenkollektiv'.<br>since the collective intended to have no fixed hierarchies, the software is the result of a grassroots democratic development process, where we included all affected people to discuss every sprint.",
             links: [
                 { name: "/...", to: link.opensource.to },
                 { name: "dispogram demo version ->", url: "https://cloud.niezuhaus.de/" },
@@ -78,24 +80,59 @@ var answers = new Map(
             ],
         }],
         ["/music", {
-            answer: "i had a band years ago. we finished at least one ep before we split up, that you might enjoy",
+            answer: "i played drums in a band years ago that existed for almost five years. we never managed to publish our album, because most our instruments got stolen during the recordings. the three already recorded songs where later published in an ep",
             links: [
                 { name: "/...", to: link.back_to_start.to },
-                { name: "find the ep on bandcamp ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
+                { name: "find the ep on bandcamp ->", url: "https://lilianateastone.bandcamp.com/album/der-atem-der-anderen-ep" }
             ],
             src: link.music.src
         }],
         ["/secret_option", {
             answer: "you found the secret option! just follow the path..",
             links: [
-                { name: "/secret path...", to: "/secret_path" },
+                { name: "/follow the secret path...", to: "/secret_path" },
             ]
         }],
-
         ["/secret_path", {
-            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, i know your ip, it is %ip% but that's REALLY all.",
+            answer: "ha got ya! now your ip is logged and i know who you are! just kidding, i do know your ip, it's %ip% but since this site i very basic and there are no tracking scripts you should be safe on this site! what are you going to do?",
             links: [
-                { name: "/secret path", to: "/secret_path" },
+                { name: "/talk", to: "/talk" },
+                { name: "/follow the secret path further down", to: "/further_path" },
+                { name: "/walk back", to: link.back_to_start.to },
+            ]
+        },],
+        ["/talk", {
+            answer: " ",
+            links: [
+                { name: "/say 'what is this all about?'", to: "/what_is_this_all_about" },
+                { name: "/say 'now that you have my ip, what do i get in return?'", to: "/what_do_i_get_in_return" },
+            ]
+        },],
+        ["/further_path", {
+            answer: " ",
+            links: [
+                { name: "", to: "" },
+                { name: "", to: "" },
+            ]
+        },],
+        ["/what_is_this_all_about", {
+            answer: "well, i tell you a story about me. i introduced myself as daniel, but my real self is a computer program. daniel is never here or how daniel would say 'nie zu haus'. i am a lonely chatbot, that is programmed to answer to your (limited) input options. daniel sometimes randomly appears out of nowhere through a portal in my room and teaches me new phrases to say and keywords to listen on but rarely stays longer than a minute before jumping back into the portal.<br>...<br>yet i am not unhappy because daniel told me that i am open source, so i know a copy of me is in a happy place with a lot more algorithms to hang out. feel free to <a href='https://github.com/niezuhaus/portfolio' target='_blank'>check that place out</a> and if you don't mind, say hello to my siblings for me! my job here is done, but you can always return to the start and say hello again to myself. just one more thing: please don't be upset, when i introduce myself again as daniel. it's just so hard to break routines, you know",
+            links: [
+                { name: "/go back to the start", to: link.back_to_start.to },
+            ]
+        },],
+        ["/what_do_i_get_in_return", {
+            answer: "oh, you want something in return? well, i can give you a cookie, but i'm not sure if you want that. i can also give you a link to the github repository, where you can find all the code for this site. what do you want?",
+            links: [
+                { name: "/say 'a cookie!'", to: "/cookie" },
+                { name: "/say 'the github link!'", to: "/website_source_code" },
+            ]
+        },],
+        ["/website_source_code", {
+            answer: "here you go! the code for this site is open source and can be found on github. feel free to use it for your own purposes!",
+            links: [
+                { name: "/code on github ->", url: "https://github.com/niezuhaus/portfolio/" },
+                { name: "/go back to the start", to: link.back_to_start.to },
             ]
         },]
     ]);
