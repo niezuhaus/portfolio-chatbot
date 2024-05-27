@@ -34,7 +34,6 @@ function setup() {
     pixelDensity(displayDensity());
     makeArt();
     document.addEventListener('touchstart', {}); // in iframe
-
 }
 function draw() {
 }
