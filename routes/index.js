@@ -14,6 +14,10 @@ router.get('/georg_nees', function(req, res) {
   res.render('georg_nees', { title: 'georg nees' });
 });
 
+router.get('/manfred_mohr', function(req, res) {
+  res.render('manfred_mohr', { title: 'manfred mohr' });
+});
+
 router.get('/music', function(req, res) {
   res.render('music', { title: 'music' });
 });
