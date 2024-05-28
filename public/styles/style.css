@@ -31,6 +31,10 @@ p, h1, h2, h3, h4, h5, h6, a{
   text-shadow: 0px 0px 8px;
 }
 
+h1, h2, h3, h4, h5 {
+  margin: 75px 0 50px 0;
+}
+
 a {
   color: #d3840f !important;
   cursor: pointer;
