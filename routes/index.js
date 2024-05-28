@@ -18,8 +18,8 @@ router.get('/manfred_mohr', function(req, res) {
   res.render('manfred_mohr', { title: 'manfred mohr' });
 });
 
-router.get('/music', function(req, res) {
-  res.render('music', { title: 'music' });
+router.get('/lilian_ate_a_stone', function(req, res) {
+  res.render('lilian_ate_a_stone', { title: 'lilian ate a stone' });
 });
 
 router.get('/science_poster_free_software', function(req, res) {
