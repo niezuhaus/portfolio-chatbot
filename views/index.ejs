@@ -145,7 +145,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.answer) {
-                        console.log(data);
+                        // console.log(data);
                         lastResponse = response;
                         response = data;
                         // delete everything
@@ -157,10 +157,15 @@
                             delay: delay,
                             deleteSpeed: delay,
                         });
-
                         typewriter
                             .pauseFor(500)
-                            .typeString(data.answer)
+                            .typeString(response.answer[0])
+                        response.answer.slice(1).forEach(text => {
+                            typewriter
+                                .pauseFor(1500)
+                                .typeString(text)
+                        })
+                        typewriter
                             .pauseFor(data.notFound ? 2000 : 0)
                             .callFunction(() => {
                                 if (data.notFound) {
