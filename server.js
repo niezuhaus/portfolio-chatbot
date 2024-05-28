@@ -25,8 +25,8 @@ app.use('/', indexRouter);
 app.use('/talk', talkRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) { 
-  next(createError(404));
+app.use(function(req, res, next) {
+  res.status(404).send('404')
 });
 
 // error handler
