@@ -10,7 +10,7 @@ var link = {
     opensource: { name: "/open source", to: "/opensource" },
     bezier_forms: { name: "/bezier forms", to: "/bezier_forms", src: "/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/georg_nees", src: "/georg_nees" },
-    manfred_mohr: { name: "/manfred mohr", to: "/manfred_mohr", src: "/manfre_mohr" },
+    manfred_mohr: { name: "/manfred mohr", to: "/manfred_mohr", src: "/manfred_mohr" },
     dispogramm: { name: "/dispogramm", to: "/dispogramm" },
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
 }
@@ -29,7 +29,7 @@ var answers = new Map(
             ]
         }],
         ["/algorithmic_drawing", {
-            answer: ["perfect, what subtopic would you like to see?"],
+            answer: ["those projects have been developed in frieder nakes yearly algorithmic drawing course. "],
             links: [
                 link.back_to_start,
                 link.bezier_forms,
@@ -60,6 +60,14 @@ var answers = new Map(
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
             ],
             src: link.georg_nees.src
+        }],
+        ["/manfred_mohr", {
+            answer: ["this is a generator of manfred mohrs artwork »P021-G«. press enter or click to generate a new version"],
+            links: [
+                { name: "/...", to: link.algorithmic_drawing.to },
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
+            ],
+            src: link.manfred_mohr.src
         }],
         ["/science_poster_free_software", {
             answer: ["this work is a critical reflection on the current state of the internet and the role of free software in it. it has been created completely with open source software and will be presented on this years exhibition on the »MS Wissenschaft« exhibition ship, which will tour around during summer 2024."],

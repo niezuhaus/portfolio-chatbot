@@ -20,14 +20,16 @@ let prevWeight = 1;
 let pencil = new Array(2);
 let destiny = new Array(2);
 function setup() {
-    createCanvas(800, 800);
+    let renderer = createCanvas(800, 800);
+    renderer.parent("#p5js");
     strokeWeight(2);
     noFill();
     strokeCap(SQUARE);
     noLoop();
+    stroke(255) 
 }
 function draw() {
-    background(255);
+    background(0);
     if (drawRowBorder) {
         drawRowBorders();
     }
