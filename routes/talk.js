@@ -6,8 +6,10 @@ var link = {
     back_to_start: { name: "/...", to: "/start" },
     algorithmic_drawing: { name: "/algorithmic drawing", to: "/algorithmic_drawing" },
     photography: { name: "/photography" },
-    music: { name: "/music", src: "/music" },
-    opensource: { name: "/open source", to: "/opensource" },
+    music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
+    lilian: { name: "/lilian ate a stone" , to: "/lilian_ate_a_stone", src: "/lilian_ate_a_stone"},
+    metall_data_sounds: { name: "/metall data & sounds" , to: "/metall_data_sounds", src: "/metall_data_sounds"},
+    opensource: { name: "/open source", to: "/open_source" },
     bezier_forms: { name: "/bezier forms", to: "/bezier_forms", src: "/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/georg_nees", src: "/georg_nees" },
     manfred_mohr: { name: "/manfred mohr", to: "/manfred_mohr", src: "/manfred_mohr" },
@@ -17,19 +19,19 @@ var link = {
 
 var answers = new Map(
     [
-        ["/start", {
+        [link.back_to_start.to, {
             answer: ["hi, i'm daniel. you found my portfolio! what parts of it are you interested in?"],
             links: [
                 link.algorithmic_drawing,
                 link.photography,
                 { name: "/videos" },
                 link.opensource,
-                link.music,
+                link.music_and_sound,
                 { name: "/secret option", to: "/secret_option" },
             ]
         }],
-        ["/algorithmic_drawing", {
-            answer: ["those projects have been developed in frieder nakes yearly algorithmic drawing course. "],
+        [link.algorithmic_drawing.to, {
+            answer: ["those projects have been developed in Frieder Nakes yearly algorithmic drawing course. "],
             links: [
                 link.back_to_start,
                 link.bezier_forms,
@@ -37,7 +39,7 @@ var answers = new Map(
                 link.manfred_mohr,
             ],
         }],
-        ["/opensource", {
+        [link.opensource.to, {
             answer: ["perfect, what subtopic would you like to see?"],
             links: [
                 link.back_to_start,
@@ -45,32 +47,32 @@ var answers = new Map(
                 link.science_poster_free_software,
             ],
         }],
-        ["/bezier_forms", {
+        [link.bezier_forms.to, {
             answer: ["press enter to generate a new piece!"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/bezierforms" }
             ],
             src: link.bezier_forms.src
         }],
-        ["/georg_nees", {
-            answer: ["this is a generator of georg nees' artwork »Graphik aus Dreiundzwanzigzackigen«. it reacts to the movement of your mouse but what properties can you alter in the x/y dimension?"],
+        [link.georg_nees.to, {
+            answer: ["this sketch can generate artworks similar to Georg Nees' »Graphik aus Dreiundzwanzigzackigen«. it reacts to the movement of your mouse but what properties can you alter in the x/y dimension?"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/georg_nees" }
             ],
             src: link.georg_nees.src
         }],
-        ["/manfred_mohr", {
-            answer: ["this is a generator of manfred mohrs artwork »P021-G«. press enter or click to generate a new version"],
+        [link.manfred_mohr.to, {
+            answer: ["this sketch can generate artworks similar to Manfred Mohrs »P021-G«. press enter or click to generate a new version. find a video of it being printed below"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing" }
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/manfred_mohr" }
             ],
             src: link.manfred_mohr.src
         }],
-        ["/science_poster_free_software", {
-            answer: ["this work is a critical reflection on the current state of the internet and the role of free software in it. it has been created completely with open source software and will be presented on this years exhibition on the »MS Wissenschaft« exhibition ship, which will tour around during summer 2024."],
+        [link.science_poster_free_software.to, {
+            answer: ["this work is a critical reflection on the current state of the internet and the role of free software in it. it has been created completely with open source software and will be presented on this years side exhibition of the »MS Wissenschaft« exhibition ship, which will tour around during summer 2024."],
             links: [
                 { name: "/...", to: link.opensource.to },
                 { name: "find all ressources and an audioversion on codeberg ->", url: "https://codeberg.org/positronen/InfraPoster" },
@@ -78,21 +80,37 @@ var answers = new Map(
             ],
             src: link.science_poster_free_software.src
         }],
-        ["/dispogramm", {
-            answer: ["this project has been my primary task between 2020 and 2022. <br>it's a web application for bike messenger companies and it has been developed by me and my colleague for our collective company 'fahrrad express kurier:innenkollektiv'.<br>since the collective intended to have no fixed hierarchies, the software is the result of a grassroots democratic development process, where we included all affected people to discuss every sprint."],
+        [link.dispogramm.to, {
+            answer: ["this project has been my primary task between 2020 and 2022. <br>it's a web application for bike messenger companies and it has been developed by me and my colleague for our collective company 'fahrrad express kurier:innenkollektiv'.<br>since the collective intended to have no fixed hierarchies, the software is the result of a grassroots democratic development process, where we included all affected people to discuss further development sprints. since I considered it a politically significant project, I dedicated my bachelor thesis to it.it contains research about democratic work culture as well as "],
             links: [
                 { name: "/...", to: link.opensource.to },
                 { name: "dispogram demo version ->", url: "https://cloud.niezuhaus.de/" },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/fex-dispogramm" }
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/fex-dispogramm" },
+                { name: "read my bachelorthesis ->", url: "https://wolke.niezuhaus.de/s/Y7y3TDxi3s9Q9Er" }
             ],
         }],
-        ["/music", {
-            answer: ["i played drums in a band years ago that existed for almost five years. we never managed to publish our album, because most our instruments got stolen during our recordings but three already recorded songs where later published in an ep."],
+        [link.music_and_sound.to, {
+            answer: ["perfect, what subtopic of the music section would you like to see? there's some band content as well as sound synthesis projects"],
             links: [
-                { name: "/...", to: link.back_to_start.to },
+                link.sonification,
+                link.lilian,
+            ],
+        }],
+        [link.lilian.to, {
+            answer: ["i played drums in a band years ago. we never managed to publish our album, because sadly enough most of our instruments got stolen during our recordings but three already recorded songs where later published in an ep you might enjoy."],
+            links: [
+                { name: "/...", to: link.music_and_sound.to },
                 { name: "find the ep on bandcamp ->", url: "https://lilianateastone.bandcamp.com/album/der-atem-der-anderen-ep" }
             ],
-            src: link.music.src
+            src: link.lilian.src
+        }],
+        [link.metall_data_sounds.to, {
+            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon."],
+            links: [
+                { name: "/...", to: link.music_and_sound.to },
+                { name: "find the ep on bandcamp ->", url: "https://lilianateastone.bandcamp.com/album/der-atem-der-anderen-ep" }
+            ],
+            src: link.lilian.src
         }],
         ["/secret_option", {
             answer: ["you found the secret option! just follow the path.."],
@@ -158,7 +176,7 @@ router.post('/', (req, res) => {
         res.json(response);
     }
     else {
-        res.json({ answer: "i am sorry, i didn't understand that. going back to start.", links: [], notFound: true });
+        res.json({ answer: ["i am sorry, i didn't understand that. going back to start."], links: [], notFound: true });
     }
 });
 
