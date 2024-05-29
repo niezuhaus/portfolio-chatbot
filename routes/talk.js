@@ -92,7 +92,8 @@ var answers = new Map(
         [link.music_and_sound.to, {
             answer: ["perfect, what subtopic of the music section would you like to see? there's some band content as well as sound synthesis projects"],
             links: [
-                link.sonification,
+                link.back_to_start,
+                link.metall_data_sounds,
                 link.lilian,
             ],
         }],
@@ -105,12 +106,13 @@ var answers = new Map(
             src: link.lilian.src
         }],
         [link.metall_data_sounds.to, {
-            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon."],
+            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon. we received measuring data from collaborative research centre 1232 at university bremen which spezializes on material research. the dataset we received consisted mainly of microscopic images of alloys. i decided to go for measuring grain size and control synthesizers depending on this data."],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
-                { name: "find the ep on bandcamp ->", url: "https://lilianateastone.bandcamp.com/album/der-atem-der-anderen-ep" }
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/" },
+                // @todo: insert real link
             ],
-            src: link.lilian.src
+            src: link.metall_data_sounds.src
         }],
         ["/secret_option", {
             answer: ["you found the secret option! just follow the path.."],
@@ -119,7 +121,7 @@ var answers = new Map(
             ]
         }],
         ["/secret_path", {
-            answer: ["ha got ya! now your ip is logged and i know who you are! just kidding, i do know your ip, it's %ip% but since this site i very basic and there are no tracking scripts you should be safe on this site! what are you going to do?"],
+            answer: ["ha got ya! now your ip is logged and i know who you are! just kidding, i do know your ip, it's '%ip%', but since this site is very basic and there are no tracking scripts you should be safe! what are you going to do?"],
             links: [
                 { name: "/talk", to: "/talk" },
                 { name: "/follow the secret path further down", to: "/further_path" },
