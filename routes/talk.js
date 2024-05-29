@@ -8,12 +8,12 @@ var link = {
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
     lilian: { name: "/lilian ate a stone" , to: "/lilian_ate_a_stone", src: "/lilian_ate_a_stone"},
-    metall_data_sounds: { name: "/metall data & sounds" , to: "/metall_data_sounds", src: "/metall_data_sounds"},
+    metal_data_sounds: { name: "/metal, data, sounds" , to: "/metal_data_sounds", src: "/metal_data_sounds"},
     opensource: { name: "/open source", to: "/open_source" },
     bezier_forms: { name: "/bezier forms", to: "/bezier_forms", src: "/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/georg_nees", src: "/georg_nees" },
     manfred_mohr: { name: "/manfred mohr", to: "/manfred_mohr", src: "/manfred_mohr" },
-    dispogramm: { name: "/dispogramm", to: "/dispogramm" },
+    dispogramm: { name: "/dispogramm"},
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
 }
 
@@ -31,7 +31,7 @@ var answers = new Map(
             ]
         }],
         [link.algorithmic_drawing.to, {
-            answer: ["those projects have been developed in Frieder Nakes yearly algorithmic drawing course. "],
+            answer: ["these projects have been developed in computer art pioneer Frieder Nakes yearly algorithmic drawing course. we started by abstracting and imitating artworks from early artist in the field. all of it has been originally developed in <a href='https://processing.org/' target='_blank'>processing</a> and was later ported to web via <a href='https://p5js.org/' target='_blank'>p5.js</a> using a converter. "],
             links: [
                 link.back_to_start,
                 link.bezier_forms,
@@ -80,11 +80,11 @@ var answers = new Map(
             ],
             src: link.science_poster_free_software.src
         }],
-        [link.dispogramm.to, {
-            answer: ["this project has been my primary task between 2020 and 2022. <br>it's a web application for bike messenger companies and it has been developed by me and my colleague for our collective company 'fahrrad express kurier:innenkollektiv'.<br>since the collective intended to have no fixed hierarchies, the software is the result of a grassroots democratic development process, where we included all affected people to discuss further development sprints. since I considered it a politically significant project, I dedicated my bachelor thesis to it.it contains research about democratic work culture as well as "],
+        [link.dispogramm.name, {
+            answer: ["this project has been my primary task between 2020 and 2022. <br>it's a web application for bike messenger companies and it has been developed by me and my colleague for our collective company 'fahrrad express kurier:innenkollektiv'.<br>since the collective intends to not have fixed hierarchies, the software could be seen as the result of a grassroots democratic development process. we included all affected people to discuss their necessities and the further development sprints. since this was a fully internal project, where we knew each other already, we could also remove possible hierarchies between developer and customer, that people usually experience in custom software projects like this. i documented and discussed this process in my bachelorthesis which was reviewed by Frieder Nake and Peter Maydell."],
             links: [
                 { name: "/...", to: link.opensource.to },
-                { name: "dispogram demo version ->", url: "https://cloud.niezuhaus.de/" },
+                { name: "try the dispogramm demo version ->", url: "https://cloud.niezuhaus.de/" },
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/fex-dispogramm" },
                 { name: "read my bachelorthesis ->", url: "https://wolke.niezuhaus.de/s/Y7y3TDxi3s9Q9Er" }
             ],
@@ -93,7 +93,7 @@ var answers = new Map(
             answer: ["perfect, what subtopic of the music section would you like to see? there's some band content as well as sound synthesis projects"],
             links: [
                 link.back_to_start,
-                link.metall_data_sounds,
+                link.metal_data_sounds,
                 link.lilian,
             ],
         }],
@@ -105,14 +105,14 @@ var answers = new Map(
             ],
             src: link.lilian.src
         }],
-        [link.metall_data_sounds.to, {
-            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon. we received measuring data from collaborative research centre 1232 at university bremen which spezializes on material research. the dataset we received consisted mainly of microscopic images of alloys. i decided to go for measuring grain size and control synthesizers depending on this data."],
+        [link.metal_data_sounds.to, {
+            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon. we received measuring data from <a href='https://www.uni-bremen.de/farbige-zustaende' target='_blank'>collaborative research centre 1232</a> at university bremen which did research on alloys. the dataset we received consisted mainly of microscopic images of their alloys. i decided to go for measuring grain size and control synthesizers depending on this data."],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/" },
                 // @todo: insert real link
             ],
-            src: link.metall_data_sounds.src
+            src: link.metal_data_sounds.src
         }],
         ["/secret_option", {
             answer: ["you found the secret option! just follow the path.."],
