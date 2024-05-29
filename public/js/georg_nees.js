@@ -13,7 +13,7 @@ let cornersEnd = 40;
 function setup() {
     let renderer = createCanvas(1300, 700);
     renderer.parent("#p5js");
-    // this.focus();
+    this.focus();
     noLoop();
     // stroke(255);
     document.addEventListener('touchstart', {}); // in iframe
