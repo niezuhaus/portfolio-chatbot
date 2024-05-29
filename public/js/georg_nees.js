@@ -11,8 +11,9 @@ let mapCorners = true;
 let cornersStart = 3;
 let cornersEnd = 40;
 function setup() {
-    this.focus();
-    createCanvas(1300, 700);
+    let renderer = createCanvas(1300, 700);
+    renderer.parent("#p5js");
+    // this.focus();
     noLoop();
     // stroke(255);
     document.addEventListener('touchstart', {}); // in iframe
