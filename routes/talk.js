@@ -7,6 +7,7 @@ var link = {
     algorithmic_drawing: { name: "/algorithmic drawing", to: "/algorithmic_drawing" },
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
+    variete: { name: "/variete", src: "/variete"},
     lilian: { name: "/lilian ate a stone" , to: "/lilian_ate_a_stone", src: "/lilian_ate_a_stone"},
     metal_data_sounds: { name: "/metal, data, sounds" , to: "/metal_data_sounds", src: "/metal_data_sounds"},
     opensource: { name: "/open source", to: "/open_source" },
@@ -94,8 +95,16 @@ var answers = new Map(
             links: [
                 link.back_to_start,
                 link.metal_data_sounds,
+                link.variete,
                 link.lilian,
             ],
+        }],
+        [link.variete.name, {
+            answer: [""],
+            links: [
+                { name: "/...", to: link.music_and_sound.to },
+            ],
+            src: link.variete.src
         }],
         [link.lilian.to, {
             answer: ["i played drums in a band years ago. we never managed to publish our album, because sadly enough most of our instruments got stolen during our recordings but three already recorded songs where later published in an ep you might enjoy."],
@@ -106,11 +115,10 @@ var answers = new Map(
             src: link.lilian.src
         }],
         [link.metal_data_sounds.to, {
-            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon. we received measuring data from <a href='https://www.uni-bremen.de/farbige-zustaende' target='_blank'>collaborative research centre 1232</a> at university bremen which did research on alloys. the dataset we received consisted mainly of microscopic images of their alloys. i decided to go for measuring grain size and control synthesizers depending on this data."],
+            answer: ["this work was finished in a course of (electroacoustic) composer Kilian Schwoon. we received measuring data from <a href='https://www.uni-bremen.de/farbige-zustaende' target='_blank'>collaborative research centre 1232</a> at university bremen which did research on alloys. the dataset we received consisted mainly of microscopic images of their alloys. (examples below) i decided to go for pre-processing some of the grain images measuring their size and controlling some synthesizers adsr-values depending on this extracted data. <br>note: this project is not ported to web yet. you can run the processing sketch found on github or watch the demovideo below"],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/" },
-                // @todo: insert real link
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/metal-data-sounds" },
             ],
             src: link.metal_data_sounds.src
         }],

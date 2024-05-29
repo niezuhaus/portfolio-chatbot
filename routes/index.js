@@ -26,6 +26,10 @@ router.get('/lilian_ate_a_stone', function(req, res) {
   res.render('lilian_ate_a_stone', { title: 'lilian ate a stone' });
 });
 
+router.get('/variete', function(req, res) {
+  res.render('variete', { title: 'variete 2024' });
+});
+
 router.get('/science_poster_free_software', function(req, res) {
   res.render('science_poster_free_software', { title: 'digitale infrastrukturen der freiheit' });
 });
