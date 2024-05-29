@@ -18,6 +18,10 @@ router.get('/manfred_mohr', function(req, res) {
   res.render('manfred_mohr', { title: 'manfred mohr' });
 });
 
+router.get('/metal_data_sounds', function(req, res) {
+  res.render('metal_data_sounds', { title: 'metal, data, sounds' });
+});
+
 router.get('/lilian_ate_a_stone', function(req, res) {
   res.render('lilian_ate_a_stone', { title: 'lilian ate a stone' });
 });
