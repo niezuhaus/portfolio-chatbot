@@ -26,10 +26,10 @@ function setup() {
     noFill();
     strokeCap(SQUARE);
     noLoop();
-    stroke(255) 
+    // stroke(0) 
 }
 function draw() {
-    background(0);
+    background(255);
     if (drawRowBorder) {
         drawRowBorders();
     }

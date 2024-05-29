@@ -14,11 +14,11 @@ function setup() {
     this.focus();
     createCanvas(1300, 700);
     noLoop();
-    stroke(255);
+    // stroke(255);
     document.addEventListener('touchstart', {}); // in iframe
 }
 function draw() {
-    background(0);
+    background(255);
     for (let y = 0; y < numberY; y++) {
         for (let x = 0; x < numberX; x++) {
             drawShape(x, y, createNGon(x));

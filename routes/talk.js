@@ -56,7 +56,7 @@ var answers = new Map(
             src: link.bezier_forms.src
         }],
         [link.georg_nees.to, {
-            answer: ["this sketch can generate artworks similar to Georg Nees' »Graphik aus Dreiundzwanzigzackigen«. it reacts to the movement of your mouse but what properties can you alter in the x/y dimension?"],
+            answer: ["this sketch can generate artworks similar to Georg Nees' »Graphik aus Dreiundzwanzigzackigen« (1967). it reacts to the movement of your mouse but what properties can you alter in the x/y dimension?"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/georg_nees" }
@@ -64,7 +64,7 @@ var answers = new Map(
             src: link.georg_nees.src
         }],
         [link.manfred_mohr.to, {
-            answer: ["this sketch can generate artworks similar to Manfred Mohrs »P021-G«. press enter or click to generate a new version. find a video of it being printed below"],
+            answer: ["this sketch can generate artworks similar to Manfred Mohrs »P021-G« (1970). press enter or click to generate a new version. find a video of it being printed below"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/manfred_mohr" }
