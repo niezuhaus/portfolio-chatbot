@@ -3,39 +3,47 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'start - niezuhaus', msg: 'start' });
+  res.render('index', {msg: 'start' });
 });
 
-router.get('/bezierforms', function(req, res) {
-  res.render('bezierforms', { title: 'drawings' });
+router.get('/algorithmic_drawing/bezierforms', function(req, res) {
+  res.render('bezierforms');
 });
 
-router.get('/georg_nees', function(req, res) {
-  res.render('georg_nees', { title: 'georg nees' });
+router.get('/algorithmic_drawing/georg_nees', function(req, res) {
+  res.render('georg_nees');
 });
 
-router.get('/manfred_mohr', function(req, res) {
-  res.render('manfred_mohr', { title: 'manfred mohr' });
+router.get('/algorithmic_drawing/manfred_mohr', function(req, res) {
+  res.render('manfred_mohr');
 });
 
-router.get('/metal_data_sounds', function(req, res) {
-  res.render('metal_data_sounds', { title: 'metal, data, sounds' });
+router.get('/videos/der_vegetarist', function(req, res) {
+  res.render('der_vegetarist');
 });
 
-router.get('/lilian_ate_a_stone', function(req, res) {
-  res.render('lilian_ate_a_stone', { title: 'lilian ate a stone' });
+router.get('/music_and_sound/metal_data_sounds', function(req, res) {
+  res.render('metal_data_sounds');
 });
 
-router.get('/variete', function(req, res) {
-  res.render('variete', { title: 'variete 2024' });
+router.get('/music_and_sound/lilian_ate_a_stone', function(req, res) {
+  res.render('lilian_ate_a_stone');
+});
+
+router.get('/music_and_sound/variete', function(req, res) {
+  res.render('variete');
 });
 
 router.get('/science_poster_free_software', function(req, res) {
-  res.render('science_poster_free_software', { title: 'digitale infrastrukturen der freiheit' });
+  res.render('science_poster_free_software');
 });
 
 router.get('/p/:msg', function(req, res) {
   res.render('index', { title: req.params.msg + ' - niezuhaus', msg: req.params.msg });
+});
+
+router.get('/p/:folder/:msg', function(req, res) {
+  res.render('index', { title: req.params.msg + ' - niezuhaus', msg: req.params.folder + '/' + req.params.msg });
 });
 
 module.exports = router; 

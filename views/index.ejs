@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <%= title %>
     </title>
     <link rel="stylesheet" href="/styles/style.css">
     <!-- <link rel="stylesheet" href="/styles/bootstrap.min.css"> -->
@@ -39,7 +38,7 @@
             </div>
         </div>
 
-        <iframe id="frame" src="" frameborder="0" scrolling="no" onload="resizeIframe(this)"
+        <iframe id="frame" src="" frameborder="0" scrolling="no" onload="resizeAndTitle(this)"
             referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
     </div>
@@ -48,8 +47,11 @@
 </html>
 
 <script>
-    function resizeIframe(obj) {
+    function resizeAndTitle(obj) {
+        // resizing the iframe to the content
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        // setting the title of the document
+        document.title = 'niezuhaus - ' + response.name.substring(1);
     }
 
     const delay = 1;
@@ -145,6 +147,9 @@
                         textref.innerHTML = ''
                         // update frame
                         frame.src = response?.src ? response.src : ''
+                        // frame.onload = function () {
+                        //     document.title = 'niezuhaus - ' + response.name.substring(1);
+                        // }
                         typewriter = new Typewriter(textref, {
                             loop: false,
                             delay: delay,
