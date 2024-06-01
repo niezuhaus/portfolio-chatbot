@@ -27,7 +27,7 @@ var answers = new Map(
             answer: ["hi, i'm daniel. a <span class='high'>software developer</span>, <span class='high'>musician</span>, and prospective <span class='high'>media artist</span> based in bremen. you found my portfolio! what parts of it are you interested in?"],
             links: [
                 link.algorithmic_drawing,
-                link.photography,
+                // link.photography,
                 link.videos,
                 link.opensource,
                 link.music_and_sound,
