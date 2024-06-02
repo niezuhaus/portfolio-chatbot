@@ -130,9 +130,10 @@ var answers = new Map(
         }],
         [link.midi_drums.to, {
             name: link.variete.name,
-            answer: ["."],
+            answer: ["the analog drums midi controller is the link "],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
             ],
             src: link.midi_drums.src
         }],
