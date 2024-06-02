@@ -11,6 +11,7 @@ var link = {
     miscellaneous: { name: "/miscellaneous", to: "/algorithmic_drawing/miscellaneous", src: "/algorithmic_drawing/miscellaneous" },
     videos: { name: "/videos" },
     der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist"},
+    timelapse: { name: "/timelapse", to: "/videos/timelapse", src: "/videos/timelapse"},
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
     midi_drums: { name: "/analog drums midi controller", to: "/music_and_sound/midi-drums", src: "/music_and_sound/midi-drums"},
@@ -33,7 +34,7 @@ var answers = new Map(
                 link.videos,
                 link.opensource,
                 link.music_and_sound,
-                { name: "/secret option", to: "/secret_option" },
+                { name: "/secret option", to: "/secret_option", secret: true },
             ]
         }],
         [link.algorithmic_drawing.to, {
@@ -79,15 +80,24 @@ var answers = new Map(
             links: [
                 link.back_to_start,
                 link.der_vegetarist,
+                link.timelapse,
             ],
         }],
         [link.der_vegetarist.to, {
             name: link.der_vegetarist.name,
-            answer: ["this was one of my first semester projects during my bachelor studies. i made it in 2017 during Nuri Ovüecs course 'Mediengestaltung 1'"],
+            answer: ["this was one of my first semester projects during my bachelor studies. i made it in 2017 during Nuri Ovüecs course 'Mediengestaltung 1'. at that time, i felt like i needed to make fun of some typical discussions i was facing as a vegetarian. times have changed ever since though.."],
             links: [
-                { name: "/...", to: link.videos.name },
+                { name: "/...", to: link.videos.to },
             ],
             src: link.der_vegetarist.src
+        }],
+        [link.timelapse.to, {
+            name: link.timelapse.name,
+            answer: ["in 2016 i participated in a timelapse video competition using some of my timelapse footage i had shot during my volunteering year in colombia 2015. timelapsing has a lot to do with just waiting. waiting hours for every next frame to be shot by an intervalometer while guarding the cam, waiting for the processing in adobe lightroom, and waiting for the video to be rendered. i used the workflow from <span class='high'>Gunther Wegener</span> who invented the wonderful software »<a href='https://lrtimelapse.com/de/'>LR Timelapse</a>«"],
+            links: [
+                { name: "/...", to: link.videos.to },
+            ],
+            src: link.timelapse.src
         }],
         [link.opensource.to, {
             name: link.opensource.name,
@@ -131,7 +141,7 @@ var answers = new Map(
         }],
         [link.midi_drums.to, {
             name: link.midi_drums.name,
-            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet)."],
+            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet).", "also i recently found out that <span class='high'>David Unland</span> has made a <a href='http://davidunland.de/muscle/'>similar but way more sophisticated project</a> as master thesis. i guess, following the rules of open source, i'll take it as an inspiration, to build my own project upon as i am still standing in the beginning"],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
                 { name: "find the arduino code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
@@ -168,15 +178,16 @@ var answers = new Map(
             name: "secret option",
             answer: ["you found the secret option! just follow the path.."],
             links: [
-                { name: "/follow the secret path...", to: "/secret_path" },
+                { name: "/follow the secret path...", to: "/secret_path", secret: true },
+                { name: "/go back", to: "/start" },
             ]
         }],
         ["/secret_path", {
             name: "secret path",
             answer: ["ha got ya! now your ip is logged and i know who you are! just kidding, i do know your ip, it's '%ip%', but since this site is very basic and there are no tracking scripts you should be safe! what are you going to do?"],
             links: [
-                { name: "/talk", to: "/talk" },
-                { name: "/follow the secret path further down", to: "/further_path" },
+                { name: "/talk", to: "/talk", secret: true },
+                { name: "/follow the secret path further down", to: "/further_path", secret: true },
                 { name: "/walk back", to: link.back_to_start.to },
             ]
         },],
@@ -184,13 +195,13 @@ var answers = new Map(
             name: "talk",
             answer: [" "],
             links: [
-                { name: "/say 'what is this all about?'", to: "/what_is_this_all_about" },
-                { name: "/say 'now that you have my ip, what do i get in return?'", to: "/what_do_i_get_in_return" },
+                { name: "/say 'what is this all about?'", to: "/what_is_this_all_about", secret: true },
+                { name: "/say 'now that you have my ip, what do i get in return?'", to: "/what_do_i_get_in_return", secret: true },
             ]
         },],
         ["/further_path", {
             name: "further path",
-            answer: [" "],
+            answer: ["well okay? there's not really anything to see here anymore."],
             links: [
                 { name: "", to: "" },
                 { name: "", to: "" },
@@ -207,8 +218,8 @@ var answers = new Map(
             name: "what do i get in return?",
             answer: ["oh, you want something in return? well, i can give you a cookie, but i'm not sure if you want that. i can also give you a link to the github repository, where you can find all the code for this site. what do you want?"],
             links: [
-                { name: "/say 'a cookie!'", to: "/cookie" },
-                { name: "/say 'the github link!'", to: "/website_source_code" },
+                { name: "/say 'a cookie!'", to: "/cookie", secret: true },
+                { name: "/say 'the github link!'", to: "/website_source_code", secret: true },
             ]
         },],
         ["/website_source_code", {

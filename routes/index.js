@@ -18,6 +18,10 @@ router.get('/algorithmic_drawing/manfred_mohr', function(req, res) {
   res.render('manfred_mohr');
 });
 
+router.get('/videos/timelapse', function(req, res) {
+  res.render('timelapse');
+});
+
 router.get('/videos/der_vegetarist', function(req, res) {
   res.render('der_vegetarist');
 });

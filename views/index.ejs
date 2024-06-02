@@ -117,7 +117,7 @@
             } else {
                 linkRef.onclick = () => {
                     // next talking step
-                    talk(link.to ? link.to : link.name);
+                    talk(link.to ? link.to : link.name, link.secret);
                 }
             }
         });
@@ -125,9 +125,11 @@
 
     var linkIterator
 
-    function talk(msg) {
+    function talk(msg, secret) {
         var replaceString = msg === '/start' ? '/' : '/p' + msg;
-        history.replaceState(null, '', replaceString)
+        if (!secret) {
+            history.replaceState(null, '', replaceString)
+        }
         if (msg) {
             // Send POST request
             fetch('/talk/', {
