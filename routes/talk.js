@@ -24,7 +24,7 @@ var link = {
 var answers = new Map(
     [
         [link.back_to_start.to, {
-            name: "start",
+            name: "/start",
             answer: ["hi, i'm daniel. a <span class='high'>software developer</span>, <span class='high'>musician</span>, and prospective <span class='high'>media artist</span> based in bremen. you found my portfolio! what parts of it are you interested in?"],
             links: [
                 link.algorithmic_drawing,
