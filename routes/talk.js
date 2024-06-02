@@ -36,6 +36,7 @@ var answers = new Map(
                 link.opensource,
                 link.music_and_sound,
                 { name: "/secret option", to: "/secret_option", secret: true },
+                link.about_me
             ]
         }],
         [link.algorithmic_drawing.to, {
@@ -46,6 +47,7 @@ var answers = new Map(
                 link.bezier_forms,
                 link.georg_nees,
                 link.manfred_mohr,
+                link.miscellaneous
             ],
         }],
         [link.bezier_forms.to, {
@@ -74,6 +76,14 @@ var answers = new Map(
                 { name: "find the code on github ->", url: "https://github.com/niezuhaus/algorithmic-drawing/tree/main/manfred_mohr" }
             ],
             src: link.manfred_mohr.src
+        }],
+        [link.miscellaneous.to, {
+            name: link.miscellaneous.name,
+            answer: [" "],
+            links: [
+                { name: "/...", to: link.algorithmic_drawing.to },
+            ],
+            src: link.miscellaneous.src
         }],
         [link.videos.name, {
             name: link.videos.name,
