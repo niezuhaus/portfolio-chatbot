@@ -12,6 +12,7 @@ var link = {
     der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist"},
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
+    midi_drums: { name: "/analog drums midi controller", to: "/midi-drums", src: "/music_and_sound/midi-drums"},
     variete: { name: "/variete", to: "/music_and_sound/variete", src: "/music_and_sound/variete"},
     lilian: { name: "/lilian ate a stone" , to: "/music_and_sound/lilian_ate_a_stone", src: "/music_and_sound/lilian_ate_a_stone"},
     metal_data_sounds: { name: "/metal, data, sounds" , to: "/music_and_sound/metal_data_sounds", src: "/music_and_sound/metal_data_sounds"},
@@ -121,10 +122,19 @@ var answers = new Map(
             answer: ["perfect, what subtopic of the music section would you like to see? there's some band content as well as sound synthesis projects"],
             links: [
                 link.back_to_start,
+                link.midi_drums,
                 link.metal_data_sounds,
                 link.variete,
                 link.lilian,
             ],
+        }],
+        [link.midi_drums.to, {
+            name: link.variete.name,
+            answer: ["."],
+            links: [
+                { name: "/...", to: link.music_and_sound.to },
+            ],
+            src: link.midi_drums.src
         }],
         [link.variete.to, {
             name: link.variete.name,

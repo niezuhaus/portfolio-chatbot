@@ -22,6 +22,10 @@ router.get('/videos/der_vegetarist', function(req, res) {
   res.render('der_vegetarist');
 });
 
+router.get('/music_and_sound/midi-drums', function(req, res) {
+  res.render('midi-drums');
+});
+
 router.get('/music_and_sound/metal_data_sounds', function(req, res) {
   res.render('metal_data_sounds');
 });
