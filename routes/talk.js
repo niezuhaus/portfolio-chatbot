@@ -129,11 +129,11 @@ var answers = new Map(
             ],
         }],
         [link.midi_drums.to, {
-            name: link.variete.name,
-            answer: ["the analog drums midi controller is the link "],
+            name: link.midi_drums.name,
+            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet)."],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
+                { name: "find the arduino code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
             ],
             src: link.midi_drums.src
         }],

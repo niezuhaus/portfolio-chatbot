@@ -51,7 +51,7 @@
         // resizing the iframe to the content
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
         // setting the title of the document
-        document.title = 'niezuhaus - ' + response.name.substring(1);
+        document.title = 'niezuhaus - ' + (response?.name?.substring(1) || 'portfolio') ;
     }
 
     const delay = 1;
@@ -90,7 +90,7 @@
     var response;
     var lastResponse;
 
-    var fillLinks = function () {
+    function fillLinks () {
         linkwriter.forEach((writer, i) => {
             var link = linkRefs[i];
             link.removeAttribute("href");
@@ -125,7 +125,7 @@
 
     var linkIterator
 
-    var talk = function (msg) {
+    function talk(msg) {
         var replaceString = msg === '/start' ? '/' : '/p' + msg;
         history.replaceState(null, '', replaceString)
         if (msg) {
@@ -147,9 +147,6 @@
                         textref.innerHTML = ''
                         // update frame
                         frame.src = response?.src ? response.src : ''
-                        // frame.onload = function () {
-                        //     document.title = 'niezuhaus - ' + response.name.substring(1);
-                        // }
                         typewriter = new Typewriter(textref, {
                             loop: false,
                             delay: delay,
