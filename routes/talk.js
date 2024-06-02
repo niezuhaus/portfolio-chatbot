@@ -10,17 +10,18 @@ var link = {
     manfred_mohr: { name: "/manfred mohr", to: "/algorithmic_drawing/manfred_mohr", src: "/algorithmic_drawing/manfred_mohr" },
     miscellaneous: { name: "/miscellaneous", to: "/algorithmic_drawing/miscellaneous", src: "/algorithmic_drawing/miscellaneous" },
     videos: { name: "/videos" },
-    der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist"},
-    timelapse: { name: "/timelapse", to: "/videos/timelapse", src: "/videos/timelapse"},
+    der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist" },
+    timelapse: { name: "/timelapse", to: "/videos/timelapse", src: "/videos/timelapse" },
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
-    midi_drums: { name: "/analog drums midi controller", to: "/music_and_sound/midi-drums", src: "/music_and_sound/midi-drums"},
-    variete: { name: "/variete", to: "/music_and_sound/variete", src: "/music_and_sound/variete"},
-    lilian: { name: "/lilian ate a stone" , to: "/music_and_sound/lilian_ate_a_stone", src: "/music_and_sound/lilian_ate_a_stone"},
-    metal_data_sounds: { name: "/metal, data, sounds" , to: "/music_and_sound/metal_data_sounds", src: "/music_and_sound/metal_data_sounds"},
+    midi_drums: { name: "/analog drums midi controller", to: "/music_and_sound/midi-drums", src: "/music_and_sound/midi-drums" },
+    variete: { name: "/variete", to: "/music_and_sound/variete", src: "/music_and_sound/variete" },
+    lilian: { name: "/lilian ate a stone", to: "/music_and_sound/lilian_ate_a_stone", src: "/music_and_sound/lilian_ate_a_stone" },
+    metal_data_sounds: { name: "/metal, data, sounds", to: "/music_and_sound/metal_data_sounds", src: "/music_and_sound/metal_data_sounds" },
     opensource: { name: "/open source", to: "/open_source" },
-    dispogramm: { name: "/dispogramm"},
+    dispogramm: { name: "/dispogramm" },
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
+    about_me: { name: "/about me", to: "/about_me", src: "/about_me" }
 }
 
 var answers = new Map(
@@ -87,15 +88,15 @@ var answers = new Map(
             name: link.der_vegetarist.name,
             answer: ["this was one of my first semester projects during my bachelor studies. i made it in 2017 during Nuri Ovüecs course 'Mediengestaltung 1'. at that time, i felt like i needed to make fun of some typical discussions i was facing as a vegetarian. times have changed ever since though.."],
             links: [
-                { name: "/...", to: link.videos.to },
+                { name: "/...", to: link.videos.name },
             ],
             src: link.der_vegetarist.src
         }],
         [link.timelapse.to, {
             name: link.timelapse.name,
-            answer: ["in 2016 i participated in a timelapse video competition using some of my timelapse footage i had shot during my volunteering year in colombia 2015. timelapsing has a lot to do with just waiting. waiting hours for every next frame to be shot by an intervalometer while guarding the cam, waiting for the processing in adobe lightroom, and waiting for the video to be rendered. i used the workflow from <span class='high'>Gunther Wegener</span> who invented the wonderful software »<a href='https://lrtimelapse.com/de/'>LR Timelapse</a>«"],
+            answer: ["in 2016 i participated in a timelapse video competition using some of my timelapse footage i had shot during my volunteering year in colombia 2015. timelapsing has a lot to do with just waiting. waiting sometimes hours for the shot to be done (espacially for slow movements to capture like stars). the good thing about it is, that i remember all of those places very well, which is why this video has more of a personal value for me."],
             links: [
-                { name: "/...", to: link.videos.to },
+                { name: "/...", to: link.videos.name },
             ],
             src: link.timelapse.src
         }],
@@ -190,7 +191,7 @@ var answers = new Map(
                 { name: "/follow the secret path further down", to: "/further_path", secret: true },
                 { name: "/walk back", to: link.back_to_start.to },
             ]
-        },],
+        }],
         ["/talk", {
             name: "talk",
             answer: [" "],
@@ -198,7 +199,7 @@ var answers = new Map(
                 { name: "/say 'what is this all about?'", to: "/what_is_this_all_about", secret: true },
                 { name: "/say 'now that you have my ip, what do i get in return?'", to: "/what_do_i_get_in_return", secret: true },
             ]
-        },],
+        }],
         ["/further_path", {
             name: "further path",
             answer: ["well okay? there's not really anything to see here anymore."],
@@ -206,14 +207,14 @@ var answers = new Map(
                 { name: "", to: "" },
                 { name: "", to: "" },
             ]
-        },],
+        }],
         ["/what_is_this_all_about", {
             name: "what is this all about?",
             answer: ["well, i tell you a story about me. i introduced myself as daniel, but my real self is a computer program. daniel is never here or how daniel would say 'nie zu haus'. i am a lonely chatbot, that is programmed to answer to your (limited) input options. daniel sometimes randomly appears out of nowhere through a portal in my room and teaches me new phrases to say and keywords to listen on but rarely stays longer than a minute before jumping back into the portal.<br>", "...", "<br>yet i am not unhappy because daniel told me that i am open source. that means, i can be sure a copy of me is in a happy place with a lot more algorithms to hang out with. feel free to <a href='https://github.com/niezuhaus/portfolio-chatbot' target='_blank'>check that place out</a> and if you don't mind, say hello to my siblings for me! my job here is done, but you can always return to the start and say hello again to myself. just one more thing: please don't be upset, if i introduce myself again as daniel. it's just so hard to break routines, you know? <br>bye %ip%!"],
             links: [
                 { name: "/go back to the start", to: link.back_to_start.to },
             ]
-        },],
+        }],
         ["/what_do_i_get_in_return", {
             name: "what do i get in return?",
             answer: ["oh, you want something in return? well, i can give you a cookie, but i'm not sure if you want that. i can also give you a link to the github repository, where you can find all the code for this site. what do you want?"],
@@ -221,14 +222,19 @@ var answers = new Map(
                 { name: "/say 'a cookie!'", to: "/cookie", secret: true },
                 { name: "/say 'the github link!'", to: "/website_source_code", secret: true },
             ]
-        },],
+        }],
         ["/website_source_code", {
             name: "website source code",
             answer: ["here you go: <a href='https://github.com/niezuhaus/portfolio-chatbot' target='_blank'>https://github.com/niezuhaus/portfolio-chatbot</a>"],
             links: [
                 { name: "/go back to the start", to: link.back_to_start.to },
             ]
-        },]
+        }],
+        ["/about_me", {
+            name: link.about_me.name,
+            answer: ["hi"]
+        }
+        ]
     ]);
 
 router.post('/', (req, res) => {
