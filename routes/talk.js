@@ -186,10 +186,9 @@ var answers = new Map(
         }],
         ["/about_me", {
             name: link.about_me.name,
-            answer: ["well, if you discovered all the other options on this website already you know quite a bit about me. i'd say at this point you might just <a onclick = 'openMailer(this)'>get in touch via e-mail</a>", "...OR", "<a onclick='talk(\'/secret option\')'>CLICK HERE</a>"],
+            answer: ["well, if you discovered all the other options on this website already you know quite a bit about me. i'd say at this point you might just <a onclick = 'openMailer(this)'>get in touch via e-mail</a> or...", "<br><br>...OR", "<br><br>", "<a onclick='%secret%'>CLICK HERE</a>"],
             links: [
                 link.back_to_start,
-                { name: "/secret option", to: "/secret_option", secret: true },
             ]
         }
         ],
@@ -214,17 +213,16 @@ var answers = new Map(
             name: "talk",
             answer: [" "],
             links: [
-                { name: "/say 'what is this all about?'", to: "/what_is_this_all_about", secret: true },
                 { name: "/say 'now that you have my ip, what do i get in return?'", to: "/what_do_i_get_in_return", secret: true },
+                { name: "/say 'what is this all about?'", to: "/what_is_this_all_about", secret: true },
             ]
         }],
         ["/further_path", {
             name: "further path",
-            answer: ["well okay? there's not really anything to see here anymore."],
+            answer: ["seems like this path is going in a circle..."],
             links: [
-                { name: "", to: "" },
-                { name: "", to: "" },
-            ]
+                { name: "/follow the path further along", to: "/further_path", secret: true,},
+            ],
         }],
         ["/what_is_this_all_about", {
             name: "what is this all about?",
@@ -258,8 +256,10 @@ router.post('/', (req, res) => {
             if (text.includes('%ip%')) {
                 var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
                 console.log(ip);
-                console.log(response.answer[i].search('%ip%'));
                 response.answer[i] = text.replace('%ip%', ip);
+            }
+            if (text.includes('%secret%')) {
+                response.answer[i] = text.replace('%secret%', 'talk("/secret_option", true)');
             }
         })
         res.json(response);
