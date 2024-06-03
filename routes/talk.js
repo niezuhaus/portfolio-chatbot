@@ -196,7 +196,7 @@ var answers = new Map(
             name: "secret option",
             answer: ["you found the secret option! just follow the path.."],
             links: [
-                { name: "/follow the mysterious path...", to: "/secret_path", secret: true },
+                { name: "/follow the mysterious path...", to: "/secret_path"},
                 { name: "/go back", to: "/start" },
             ]
         }],
@@ -254,7 +254,7 @@ router.post('/', (req, res) => {
         let response = answers.get(req.body.msg)
         response.answer.forEach((text, i) => {
             if (text.includes('%ip%')) {
-                var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+                var ip = req.socket.remoteAddress
                 console.log(ip);
                 response.answer[i] = text.replace('%ip%', ip);
             }
