@@ -30,12 +30,11 @@ var answers = new Map(
             name: "/start",
             answer: ["hi, i'm daniel. a <span class='high'>software developer</span>, <span class='high'>musician</span>, and prospective <span class='high'>media artist</span> based in bremen. you found my portfolio! what parts of it are you interested in?"],
             links: [
-                link.algorithmic_drawing,
-                // link.photography,
-                link.videos,
-                link.opensource,
                 link.music_and_sound,
-                { name: "/secret option", to: "/secret_option", secret: true },
+                link.opensource,
+                link.algorithmic_drawing,
+                link.videos,
+                // link.photography,
                 link.about_me
             ]
         }],
@@ -152,7 +151,7 @@ var answers = new Map(
         }],
         [link.midi_drums.to, {
             name: link.midi_drums.name,
-            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet).", "also i recently found out that <span class='high'>David Unland</span> has made a <a href='http://davidunland.de/muscle/'>similar but way more sophisticated project</a> as master thesis. i guess, following the rules of open source, i'll take it as an inspiration, to build my own project upon as i am still standing in the beginning"],
+            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br><br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet).", "also i recently found out that <span class='high'>David Unland</span> has made a <a href='http://davidunland.de/muscle/'>similar but way more sophisticated project</a> as master thesis. i guess, following the rules of open source, i'll take it as an inspiration, to build my own project upon as i am still standing in the beginning"],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
                 { name: "find the arduino code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
@@ -185,6 +184,15 @@ var answers = new Map(
             ],
             src: link.metal_data_sounds.src
         }],
+        ["/about_me", {
+            name: link.about_me.name,
+            answer: ["well, if you discovered all the other options on this website already you know quite a bit about me. i'd say at this point you might just <a onclick = 'openMailer(this)'>get in touch via e-mail</a>", "...OR", "<a onclick='talk(\'/secret option\')'>CLICK HERE</a>"],
+            links: [
+                link.back_to_start,
+                { name: "/secret option", to: "/secret_option", secret: true },
+            ]
+        }
+        ],
         ["/secret_option", {
             name: "secret option",
             answer: ["you found the secret option! just follow the path.."],
@@ -240,11 +248,6 @@ var answers = new Map(
                 { name: "/go back to the start", to: link.back_to_start.to },
             ]
         }],
-        ["/about_me", {
-            name: link.about_me.name,
-            answer: ["hi"]
-        }
-        ]
     ]);
 
 router.post('/', (req, res) => {
