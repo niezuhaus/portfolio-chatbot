@@ -151,7 +151,7 @@ var answers = new Map(
         }],
         [link.midi_drums.to, {
             name: link.midi_drums.name,
-            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br><br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet).", "also i recently found out that <span class='high'>David Unland</span> has made a <a href='http://davidunland.de/muscle/'>similar but way more sophisticated project</a> as master thesis. i guess, following the rules of open source, i'll take it as an inspiration, to build my own project upon as i am still standing in the beginning"],
+            answer: ["the analog drums midi controller is one of my most recent projects. i love to play the drums, but i also like to work with midi, which is why i got myself some e-drums in 2022. this extension will give an accoustic drum set a standard midi interface to connect to while preserving the joy of playing on a real drumset.", "<br><br>it's made of an arduino and some piezo contact microphones. watch the video below, to find out, what this device is capable of..and what it's not (yet).", "also i recently found out that <span class='high'>David Unland</span> has made a <a href='http://davidunland.de/muscle/'>similar but way more sophisticated project</a> as master thesis. i guess, following the spirit of open source, i'll take this as an inspiration, to build my own project upon as i have different ideas as for example drum learning games, that use a drumset instead of a gamepad to play some rythm games that have to be invented still"],
             links: [
                 { name: "/...", to: link.music_and_sound.to },
                 { name: "find the arduino code on github ->", url: "https://github.com/niezuhaus/analog-drums-midi-controller" },
@@ -254,7 +254,7 @@ router.post('/', (req, res) => {
         let response = answers.get(req.body.msg)
         response.answer.forEach((text, i) => {
             if (text.includes('%ip%')) {
-                var ip = req.ip || req.ips
+                var ip = req.ip
                 console.log(ip);
                 response.answer[i] = text.replace('%ip%', ip);
             }
