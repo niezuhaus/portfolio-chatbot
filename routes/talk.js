@@ -196,7 +196,7 @@ var answers = new Map(
             name: "secret option",
             answer: ["you found the secret option! just follow the path.."],
             links: [
-                { name: "/follow the secret path...", to: "/secret_path", secret: true },
+                { name: "/follow the mysterious path...", to: "/secret_path", secret: true },
                 { name: "/go back", to: "/start" },
             ]
         }],
