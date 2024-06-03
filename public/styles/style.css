@@ -52,6 +52,10 @@ a:hover {
   color: #b5710d !important;
 }
 
+img .standart-width {
+  width: 800px;
+}
+
 #term-user {
   color: #d3840f;
 }
