@@ -8,7 +8,7 @@ var link = {
     bezier_forms: { name: "/bezier forms", to: "/algorithmic_drawing/bezier_forms", src: "/algorithmic_drawing/bezierforms" },
     georg_nees: { name: "/georg nees", to: "/algorithmic_drawing/georg_nees", src: "/algorithmic_drawing/georg_nees" },
     manfred_mohr: { name: "/manfred mohr", to: "/algorithmic_drawing/manfred_mohr", src: "/algorithmic_drawing/manfred_mohr" },
-    miscellaneous: { name: "/miscellaneous", to: "/algorithmic_drawing/miscellaneous", src: "/algorithmic_drawing/miscellaneous" },
+    circle_2: { name: "/circle²", to: "/algorithmic_drawing/circle_2", src: "/algorithmic_drawing/circle_2" },
     videos: { name: "/videos" },
     der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist" },
     timelapse: { name: "/timelapse", to: "/videos/timelapse", src: "/videos/timelapse" },
@@ -47,7 +47,7 @@ var answers = new Map(
                 link.bezier_forms,
                 link.georg_nees,
                 link.manfred_mohr,
-                link.miscellaneous
+                link.circle_2
             ],
         }],
         [link.bezier_forms.to, {
@@ -77,13 +77,13 @@ var answers = new Map(
             ],
             src: link.manfred_mohr.src
         }],
-        [link.miscellaneous.to, {
-            name: link.miscellaneous.name,
-            answer: [" "],
+        [link.circle_2.to, {
+            name: link.circle_2.name,
+            answer: ["some interactions between a circle and a square"],
             links: [
                 { name: "/...", to: link.algorithmic_drawing.to },
             ],
-            src: link.miscellaneous.src
+            src: link.circle_2.src
         }],
         [link.videos.name, {
             name: link.videos.name,
@@ -112,11 +112,11 @@ var answers = new Map(
         }],
         [link.opensource.to, {
             name: link.opensource.name,
-            answer: ["perfect, what subtopic would you like to see?"],
+            answer: ["this category features two works that are very different from each other but one difference is just tiny: the first is <span class='high'>about</span> open source (resp. »free software«) the other <span class='high'>is</span> open source."],
             links: [
                 link.back_to_start,
-                link.dispogramm,
                 link.science_poster_free_software,
+                link.dispogramm,
             ],
         }],
         [link.science_poster_free_software.to, {
