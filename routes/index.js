@@ -30,6 +30,10 @@ router.get('/videos/der_vegetarist', function(req, res) {
   res.render('der_vegetarist');
 });
 
+router.get('/videos/los_tambores_de_nuble', function(req, res) {
+  res.render('los_tambores_de_nuble');
+});
+
 router.get('/music_and_sound/midi-drums', function(req, res) {
   res.render('midi-drums');
 });

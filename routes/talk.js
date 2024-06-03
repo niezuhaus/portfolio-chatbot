@@ -12,6 +12,7 @@ var link = {
     videos: { name: "/videos" },
     der_vegetarist: { name: "/der vegetarist", to: "/videos/der_vegetarist", src: "/videos/der_vegetarist" },
     timelapse: { name: "/timelapse", to: "/videos/timelapse", src: "/videos/timelapse" },
+    los_tambores_de_nuble: { name: "/los tambores de ñuble", to: "/videos/los_tambores_de_nuble", src: "/videos/los_tambores_de_nuble" },
     photography: { name: "/photography" },
     music_and_sound: { name: "/music & sound", to: "/music_and_sound" },
     midi_drums: { name: "/analog drums midi controller", to: "/music_and_sound/midi-drums", src: "/music_and_sound/midi-drums" },
@@ -93,6 +94,7 @@ var answers = new Map(
                 link.back_to_start,
                 link.der_vegetarist,
                 link.timelapse,
+                link.los_tambores_de_nuble,
             ],
         }],
         [link.der_vegetarist.to, {
@@ -110,6 +112,14 @@ var answers = new Map(
                 { name: "/...", to: link.videos.name },
             ],
             src: link.timelapse.src
+        }],
+        [link.los_tambores_de_nuble.to, {
+            name: link.los_tambores_de_nuble.name,
+            answer: ["during my semester abroad at UNIACC in santiago de chile i participated a samba drum event, that happened in the streets some neighbourhood of santiago. i was hired to take pictures of a samba group which i did, but after the official part of the event everybody gathered around in circles with their drums, hitting them til some hands were bloody. i ended up rolling my camera standing in of those circles and capturing this beautiful moment while trying to make use of the circumstance of not having a zoomlens."],
+            links: [
+                { name: "/...", to: link.videos.name },
+            ],
+            src: link.los_tambores_de_nuble.src
         }],
         [link.opensource.to, {
             name: link.opensource.name,
