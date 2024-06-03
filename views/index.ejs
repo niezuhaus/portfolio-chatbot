@@ -47,11 +47,23 @@
 </html>
 
 <script>
+    function decode(a) {
+        return a.replace(/[a-zA-Z]/g, function (c) {
+            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+        })
+    };
+
+    function openMailer(element) {
+        var parts = [decode('avrmhunh'), decode('cbfg'), decode('f.qr')]
+        element.setAttribute("href", `mailto:${parts[1]}@${parts[0] + parts[2]}`);
+        element.setAttribute("onclick", "");
+    };
+
     function resizeAndTitle(obj) {
         // resizing the iframe to the content
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
         // setting the title of the document
-        document.title = 'niezuhaus - ' + (response?.name?.substring(1) || 'portfolio') ;
+        document.title = 'niezuhaus - ' + (response?.name?.substring(1) || 'portfolio');
     }
 
     const delay = 1;
@@ -90,7 +102,7 @@
     var response;
     var lastResponse;
 
-    function fillLinks () {
+    function fillLinks() {
         linkwriter.forEach((writer, i) => {
             var link = linkRefs[i];
             link.removeAttribute("href");
