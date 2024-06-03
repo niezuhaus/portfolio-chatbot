@@ -21,7 +21,8 @@ var link = {
     opensource: { name: "/open source", to: "/open_source" },
     dispogramm: { name: "/dispogramm" },
     science_poster_free_software: { name: "/science poster: free software", to: "/science_poster_free_software", src: "/science_poster_free_software" },
-    about_me: { name: "/about me", to: "/about_me", src: "/about_me" }
+    about_me: { name: "/about me", to: "/about_me", src: "/about_me" },
+    blog: { name: "/blog"},
 }
 
 var answers = new Map(
@@ -35,6 +36,7 @@ var answers = new Map(
                 link.algorithmic_drawing,
                 link.videos,
                 // link.photography,
+                link.blog,
                 link.about_me
             ]
         }],
@@ -184,6 +186,15 @@ var answers = new Map(
             ],
             src: link.metal_data_sounds.src
         }],
+        ["/blog", {
+            name: link.blog.name,
+            answer: ["during my semester in chile in 2018/19 at UNIACC via HfK i had a blog. originally it was meant to be an update blog for my family but i ended up only posting about 3-5 articles there. i recommend reading the last one (#4) and look at the black&white pictures of persa bíobío in article #3 where i encountered a lot of nice people in a strange but cozy place."],
+            links: [
+                link.back_to_start,
+                { name: "go to the blog ->", url: "https://blog.niezuhaus.de" },
+            ]
+        }
+        ],
         ["/about_me", {
             name: link.about_me.name,
             answer: ["well, if you discovered all the other options on this website already you know quite a bit about me. i'd say at this point you might just <a onclick = 'openMailer(this)'>get in touch via e-mail</a> or...", "<br><br>...OR", "<br><br>", "<a onclick='%secret%'>CLICK HERE</a>"],
