@@ -254,7 +254,7 @@ router.post('/', (req, res) => {
         let response = answers.get(req.body.msg)
         response.answer.forEach((text, i) => {
             if (text.includes('%ip%')) {
-                var ip = req.socket.remoteAddress
+                var ip = req.ip || req.ips
                 console.log(ip);
                 response.answer[i] = text.replace('%ip%', ip);
             }
