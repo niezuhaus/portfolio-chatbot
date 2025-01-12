@@ -146,7 +146,7 @@ var answers = new Map(
             links: [
                 { name: "/...", to: link.opensource.to },
                 { name: "try the dispogramm demo version ->", url: "https://cloud.niezuhaus.de/" },
-                { name: "find the code on github ->", url: "https://github.com/niezuhaus/fex-dispogramm" },
+                { name: "find the code on github ->", url: "https://github.com/niezuhaus/dispogramm" },
                 { name: "read my bachelorthesis ->", url: "https://wolke.niezuhaus.de/s/Y7y3TDxi3s9Q9Er" }
             ],
         }],
